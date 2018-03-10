@@ -1,5 +1,8 @@
 package eu.maciejfijalkowski.lekarzWizytaPacjent.model;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.annotation.Generated;
 import javax.persistence.*;
 

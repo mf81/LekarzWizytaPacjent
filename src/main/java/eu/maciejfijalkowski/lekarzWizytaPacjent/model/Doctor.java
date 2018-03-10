@@ -11,8 +11,6 @@ public class Doctor {
     private String surnameOfDoctor;
     private String specializacion;
 
-    @OneToOne
-    private MedicalVisit medicalVisit;
 
     public Long getId() {
         return id;
@@ -37,12 +35,6 @@ public class Doctor {
     }
     public void setSpecializacion(String specializacion) {
         this.specializacion = specializacion;
-    }
-    public MedicalVisit getMedicalVisit() {
-        return medicalVisit;
-    }
-    public void setMedicalVisit(MedicalVisit medicalVisit) {
-        this.medicalVisit = medicalVisit;
     }
 
     public String getFullDoctorName(){
