@@ -51,10 +51,10 @@ public class DoctorController {
         return "redirect:/doctor";
     }
 
-    @Transactional
+//    @Transactional
     @GetMapping("/deldoctor/{id}")
     public String delDoctor(@PathVariable Long id){
-        medicalVisitRepository.deleteByDoctorId (id);
+//        medicalVisitRepository.deleteByDoctorId (id);
         doctorRepository.deleteById(id);
         return "redirect:/doctor";
     }
