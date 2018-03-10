@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj Pacjenta</title>
+</head>
+<body>
+<form action="/editdoctor" method="post" th:object="${doctor}">
+    <input type="hidden" name="id" th:value="*{id}"/>
+    <input name="nameOfDoctor" th:value="*{nameOfDoctor}"/>
+    <input name="surnameOfDoctor" th:value="*{surnameOfDoctor}"/>
+    <input name="specializacion" th:value="*{specializacion}"/>
+    <input type="submit" value="Zapisz zmiany"/>
+</form>
+
+</body>
+</html>

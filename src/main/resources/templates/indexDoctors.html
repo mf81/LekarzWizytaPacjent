@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Lekarzy</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Imię lekarza</th>
+        <th>Nazwisko lekarza</th>
+        <th>Specjalizacja</th>
+        <th>Edytuj</th>
+        <th>Kasuj</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="docs: ${indexDoctors}">
+        <td th:text="${docs.nameOfDoctor}"></td>
+        <td th:text="${docs.surnameOfDoctor}"></td>
+        <td th:text="${docs.specializacion}"></td>
+        <td> <a th:href="@{'/editdoctor/'+${docs.id}}">Edytuj</a></td>
+        <td> <a th:href="@{'/deldoctor/'+${docs.id}}">Kasuj</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

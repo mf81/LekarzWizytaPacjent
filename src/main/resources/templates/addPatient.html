@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj Pacjenta</title>
+</head>
+<body>
+    <h1>Dodaj Pacjenta</h1>
+    <form action="/patient/save" method="post" th:object="${patient}">
+        <label>Imię Pacjenta</label>
+        <input th:field="*{nameOfPatient}"/>
+        <br />
+        <label>Nazwisko Pacjenta</label>
+        <input th:field="*{surnameOfPatient}"/>
+
+        <input type="submit" value="Dodaj Pacjenta"/>
+    </form>
+
+</body>
+</html>

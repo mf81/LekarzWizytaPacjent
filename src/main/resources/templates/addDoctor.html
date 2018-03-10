@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj Lekarza</title>
+</head>
+<body>
+<h1>Dodaj Pacjenta</h1>
+<form action="/doctor/save" method="post" th:object="${doctor}">
+    <label>Imię Lekarza</label>
+    <input th:field="*{nameOfDoctor}"/>
+    <br />
+    <label>Nazwisko Lekarza</label>
+    <input th:field="*{surnameOfDoctor}"/>
+    <br />
+    <label>Specjalizacja</label>
+    <input th:field="*{specializacion}"/>
+
+    <input type="submit" value="Dodaj Pacjenta"/>
+</form>
+
+</body>
+</html>

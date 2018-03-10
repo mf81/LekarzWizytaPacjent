@@ -1,0 +1,27 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Pacjentów</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Imię pacjenta</th>
+        <th>Nazwisko pacjenta</th>
+        <th>Edytuj</th>
+        <th>Kasuj</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="patient: ${indexPatients}">
+        <td th:text="${patient.nameOfPatient}"></td>
+        <td th:text="${patient.surnameOfPatient}"></td>
+        <td> <a th:href="@{'/editpatient/'+${patient.id}}">Edytuj</a></td>
+        <td> <a th:href="@{'/delpatient/'+${patient.id}}">Kasuj</a></td>
+   </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

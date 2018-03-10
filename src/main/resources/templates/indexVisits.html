@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Lekarzy</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Imie,Nazwisko pacjenta </th>
+        <th>Specjalizacjia, Imie, Nazwisko lekarza</th>
+        <th>Data wizyty</th>
+        <th>Godzina wizyty</th>
+        <th>Kasuj</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="visit: ${indexVisits}">
+        <td th:text="${visit.patient.getFullPatientName()}"></td>
+        <td th:text="${visit.doctor.getFullDoctorName()}"></td>
+        <td th:text="${visit.dateOfVisit}"></td>
+        <td th:text="${visit.timeOfVisit}"></td>
+        <td> <a th:href="@{'/delvisit/'+${visit.id}}">Kasuj</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
