@@ -19,8 +19,8 @@ public class DoctorController {
     @Autowired
     DoctorRepository doctorRepository;
 
-    @Autowired
-    MedicalVisitRepository medicalVisitRepository;
+//    @Autowired
+//    MedicalVisitRepository medicalVisitRepository;
 
     @GetMapping("/doctor")
     public String indexDoctors(ModelMap modelMap){
