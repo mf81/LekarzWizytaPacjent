@@ -1,6 +1,8 @@
 package eu.maciejfijalkowski.lekarzWizytaPacjent.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Doctor {
@@ -10,6 +12,9 @@ public class Doctor {
     private String nameOfDoctor;
     private String surnameOfDoctor;
     private String specializacion;
+
+    @OneToMany (mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MedicalVisit> medicalVisit = new ArrayList<>();
 
 
     public Long getId() {
