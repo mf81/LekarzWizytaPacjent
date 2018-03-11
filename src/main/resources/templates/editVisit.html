@@ -12,15 +12,18 @@
     <input type="datetime-local" th:field="*{dateAndTimeOfVisit}"/>
     <br />
 
+    <p th:text="*{doctor.getId()}"></p>
+    <p th:text="*{patient.getId()}"></p>
+
     <label>Pacjent</label>
     <select name="patient" id="patient">
-        <option th:each="p:${patient}" th:value="${p.getId()}" th:text="${p.getFullPatientName()}"></option>
+        <option th:each="p:${patient}" th:value="${p.getId()}" th:text="${p.getFullPatientName()}" th:selected="${p.getId()} == *{patient.getId()}"></option>
     </select>
 
     <br />
     <label>Lekarz</label>
     <select name="doctor" id="doctor">
-        <option th:each="doc:${doctor}" th:value="${doc.getId()}" th:text="${doc}"></option>
+        <option th:each="doc:${doctor}" th:value="${doc.getId()}" th:text="${doc}" th:selected="${doc.getId()} == *{doctor.getId()}"></option>
     </select>
     <br />
     <input type="submit" value="Dodaj Pacjenta"/>
