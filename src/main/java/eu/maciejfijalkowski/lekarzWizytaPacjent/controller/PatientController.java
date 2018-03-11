@@ -32,7 +32,7 @@ public class PatientController {
     @PostMapping("/patient/save")
     public String savePatient(@ModelAttribute Patient patient){
         patientRepository.save(patient);
-        return "redirect:/";
+        return "redirect:/patient";
     }
 
     @GetMapping("/editpatient/{id}")

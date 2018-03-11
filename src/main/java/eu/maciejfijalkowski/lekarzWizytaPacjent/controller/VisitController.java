@@ -38,7 +38,7 @@ public class VisitController {
     @PostMapping("/visit/save")
     public String saveVisit(@ModelAttribute MedicalVisit medicalVisit){
         medicalVisitRepository.save(medicalVisit);
-        return "redirect:/";
+        return "redirect:/visit";
     }
 
     @GetMapping("/editvisit/{id}")
