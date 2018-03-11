@@ -19,8 +19,8 @@
     <tr th:each="visit: ${indexVisits}">
         <td th:text="${visit.patient.getFullPatientName()}"></td>
         <td th:text="${visit.doctor.getFullDoctorName()}"></td>
-        <td th:text="${visit.dateOfVisit}"></td>
-        <td th:text="${visit.timeOfVisit}"></td>
+        <td th:text="${#dates.format(new java.util.Date(visit.dateAndTimeOfVisit),'yyyy-MM-dd')}"></td>
+        <td th:text="${#dates.format(new java.util.Date(visit.dateAndTimeOfVisit),'HH:mm')}"></td>
         <td> <a th:href="@{'/delvisit/'+${visit.id}}">Kasuj</a></td>
     </tr>
     </tbody>

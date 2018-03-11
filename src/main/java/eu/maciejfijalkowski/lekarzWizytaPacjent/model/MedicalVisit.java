@@ -1,18 +1,19 @@
 package eu.maciejfijalkowski.lekarzWizytaPacjent.model;
 
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-
-import javax.annotation.Generated;
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
+import java.util.Date;
+
 
 @Entity
 public class MedicalVisit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String dateOfVisit;
-    private String timeOfVisit;
+    @Column(name = "dateAndTimeOfVisit", columnDefinition="DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date dateAndTimeOfVisit;
 
     public Long getId() {
         return id;
@@ -20,22 +21,16 @@ public class MedicalVisit {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getDateOfVisit() {
-        return dateOfVisit;
+
+    public Date getDateAndTimeOfVisit() {
+        return dateAndTimeOfVisit;
     }
-    public void setDateOfVisit(String dateOfVisit) {
-        this.dateOfVisit = dateOfVisit;
-    }
-    public String getTimeOfVisit() {
-        return timeOfVisit;
-    }
-    public void setTimeOfVisit(String timeOfVisit) {
-        this.timeOfVisit = timeOfVisit;
+    public void setDateAndTimeOfVisit(Date dateAndTimeOfVisit) {
+        this.dateAndTimeOfVisit = dateAndTimeOfVisit;
     }
 
     @OneToOne
     private Doctor doctor;
-
     public Doctor getDoctor() {
         return doctor;
     }
@@ -45,7 +40,6 @@ public class MedicalVisit {
 
     @OneToOne
     private Patient patient;
-
     public Patient getPatient() {
         return patient;
     }
@@ -57,8 +51,7 @@ public class MedicalVisit {
     public String toString() {
         return "MedicalVisit{" +
                 "id=" + id +
-                ", dateOfVisit='" + dateOfVisit + '\'' +
-                ", timeOfVisit='" + timeOfVisit + '\'' +
+                ", dateOfVisit='" + dateAndTimeOfVisit + '\'' +
                 ", doctor=" + doctor +
                 ", patient=" + patient +
                 '}';
