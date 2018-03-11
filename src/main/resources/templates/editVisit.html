@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj wizyte lekarską</title>
+</head>
+<body>
+<h1>Dodaj Pacjenta</h1>
+<form action="/editvisit" method="post" th:object="${medicalVisit}">
+    <input type="hidden" name="id" th:value="*{id}"/>
+    <label>Data wizyty lekarskiej</label>
+    <input type="datetime-local" th:field="*{dateAndTimeOfVisit}"/>
+    <br />
+
+    <label>Pacjent</label>
+    <select name="patient" id="patient">
+        <option th:each="p:${patient}" th:value="${p.getId()}" th:text="${p.getFullPatientName()}"></option>
+    </select>
+
+    <br />
+    <label>Lekarz</label>
+    <select name="doctor" id="doctor">
+        <option th:each="doc:${doctor}" th:value="${doc.getId()}" th:text="${doc}"></option>
+    </select>
+    <br />
+    <input type="submit" value="Dodaj Pacjenta"/>
+</form>
+
+</body>
+</html>

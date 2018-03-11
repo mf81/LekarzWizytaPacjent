@@ -12,6 +12,7 @@
         <th>Specjalizacjia, Imie, Nazwisko lekarza</th>
         <th>Data wizyty</th>
         <th>Godzina wizyty</th>
+        <th>Edytuj</th>
         <th>Kasuj</th>
     </tr>
     </thead>
@@ -21,6 +22,7 @@
         <td th:text="${visit.doctor.getFullDoctorName()}"></td>
         <td th:text="${#dates.format(new java.util.Date(visit.dateAndTimeOfVisit),'yyyy-MM-dd')}"></td>
         <td th:text="${#dates.format(new java.util.Date(visit.dateAndTimeOfVisit),'HH:mm')}"></td>
+        <td> <a th:href="@{'/editvisit/'+${visit.id}}">Edytuj</a></td>
         <td> <a th:href="@{'/delvisit/'+${visit.id}}">Kasuj</a></td>
     </tr>
     </tbody>

@@ -43,6 +43,20 @@ public class VisitController {
         return "redirect:/";
     }
 
+    @GetMapping("/editvisit/{id}")
+    public String editVisit(ModelMap modelMap, @PathVariable Long id){
+        modelMap.addAttribute("patient",patientRepository.findAll());
+        modelMap.addAttribute("doctor",doctorRepository.findAll());
+        modelMap.addAttribute("medicalVisit",medicalVisitRepository.findById(id).get());
+        return "editVisit";
+    }
+    @PostMapping("/editvisit")
+    public String editedPatient(@ModelAttribute MedicalVisit medicalVisit){
+        medicalVisitRepository.save(medicalVisit);
+        return "redirect:/visit";
+    }
+
+
     @GetMapping("/delvisit/{id}")
     public String delVisit(@PathVariable Long id){
         medicalVisitRepository.deleteById(id);
