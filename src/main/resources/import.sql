@@ -8,3 +8,4 @@ insert into patient(name_of_patient,surname_of_patient) values ('Krzysztof','Fij
 
 insert into medical_visit(date_and_time_of_visit,doctor_id,patient_id) values ('2018-02-20 12:15',1,1);
 insert into medical_visit(date_and_time_of_visit,doctor_id,patient_id) values ('2018-03-01 13:25',1,1);
+insert into medical_visit(date_and_time_of_visit,doctor_id,patient_id) values ('2018-03-01 13:25',2,2);

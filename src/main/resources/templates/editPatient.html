@@ -5,6 +5,7 @@
     <title>Edytuj Pacjenta</title>
 </head>
 <body>
+<h1>Edytuj pacjęta</h1>
 <form action="/editpatient" method="post" th:object="${patient}">
     <input type="hidden" name="id" th:value="*{id}"/>
     <input name="nameOfPatient" th:value="*{nameOfPatient}"/>

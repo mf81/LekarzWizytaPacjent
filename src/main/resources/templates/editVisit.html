@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Dodaj wizyte lekarską</title>
+    <title>Edytuj wizyte lekarską</title>
 </head>
 <body>
-<h1>Dodaj Pacjenta</h1>
+<h1>Edytuj wizyte lekarską</h1>
 <form action="/editvisit" method="post" th:object="${medicalVisit}">
     <input type="hidden" name="id" th:value="*{id}"/>
     <label>Data wizyty lekarskiej</label>
