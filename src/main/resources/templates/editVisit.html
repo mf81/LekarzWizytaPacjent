@@ -12,9 +12,6 @@
     <input type="datetime-local" th:field="*{dateAndTimeOfVisit}"/>
     <br />
 
-    <p th:text="*{doctor.getId()}"></p>
-    <p th:text="*{patient.getId()}"></p>
-
     <label>Pacjent</label>
     <select name="patient" id="patient">
         <option th:each="p:${patient}" th:value="${p.getId()}" th:text="${p.getFullPatientName()}" th:selected="${p.getId()} == *{patient.getId()}"></option>
