@@ -21,8 +21,6 @@ public class VisitController {
     @Autowired
     PatientRepository patientRepository;
 
-    MedicalVisit medicalVisit = new MedicalVisit();
-
     @GetMapping("/visit")
     public String indexVisits(ModelMap modelMap){
         modelMap.addAttribute("indexVisits",medicalVisitRepository.findAll());
@@ -33,7 +31,7 @@ public class VisitController {
     public String addVisit(ModelMap modelMap){
         modelMap.addAttribute("patient",patientRepository.findAll());
         modelMap.addAttribute("doctor",doctorRepository.findAll());
-        modelMap.addAttribute("medicalVisit",medicalVisit);
+        modelMap.addAttribute("medicalVisit",new MedicalVisit());
         return "addVisit";
     }
 
