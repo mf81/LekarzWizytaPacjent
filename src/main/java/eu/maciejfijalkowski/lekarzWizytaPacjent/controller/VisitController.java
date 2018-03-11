@@ -54,10 +54,15 @@ public class VisitController {
         return "redirect:/visit";
     }
 
-
     @GetMapping("/delvisit/{id}")
-    public String delVisit(@PathVariable Long id){
-        medicalVisitRepository.deleteById(id);
+    public String delVisit(@PathVariable Long id,ModelMap modelMap){
+        modelMap.addAttribute("id",id);
+        return "delVisit";
+    }
+
+    @DeleteMapping("/delvisit")
+    public String delVisitComm(@ModelAttribute MedicalVisit medicalVisit){
+        medicalVisitRepository.deleteById(medicalVisit.getId());
         return "redirect:/visit";
     }
 

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<p>Kasuj?</p>
+<form action="/delpatient" th:method="delete" method="delete">
+    <input type="hidden" name="id" th:value="${id}"/>
+    <input type="submit" value="Kasuj"/>
+</form>
+
+
+</body>
+</html>

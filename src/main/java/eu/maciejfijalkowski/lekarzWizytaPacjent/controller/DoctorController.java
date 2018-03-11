@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class DoctorController {
@@ -52,10 +49,22 @@ public class DoctorController {
     }
 
 //    @Transactional
-    @GetMapping("/deldoctor/{id}")
-    public String delDoctor(@PathVariable Long id){
+//    @GetMapping("/deldoctor/{id}")
+//    public String delDoctor(@PathVariable Long id){
 //        medicalVisitRepository.deleteByDoctorId (id);
-        doctorRepository.deleteById(id);
+//        doctorRepository.deleteById(id);
+//        return "redirect:/doctor";
+//    }
+
+    @GetMapping("/deldoctor/{id}")
+    public String delDoctor(@PathVariable Long id,ModelMap modelMap){
+        modelMap.addAttribute("id",id);
+        return "delDoctor";
+    }
+
+    @DeleteMapping("/deldoctor")
+    public String delDoctorComm(@ModelAttribute Doctor doctor){
+        doctorRepository.deleteById(doctor.getId());
         return "redirect:/doctor";
     }
 

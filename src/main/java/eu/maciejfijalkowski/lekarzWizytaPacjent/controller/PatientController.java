@@ -6,10 +6,7 @@ import eu.maciejfijalkowski.lekarzWizytaPacjent.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PatientController {
@@ -47,8 +44,14 @@ public class PatientController {
     }
 
     @GetMapping("/delpatient/{id}")
-    public String delPatient(@PathVariable Long id){
-        patientRepository.deleteById(id);
+    public String delPatient(@PathVariable Long id,ModelMap modelMap){
+        modelMap.addAttribute("id",id);
+        return "delPatient";
+    }
+
+    @DeleteMapping("/delpatient")
+    public String delPatientComm(@ModelAttribute Patient patient){
+        patientRepository.deleteById(patient.getId());
         return "redirect:/patient";
     }
 }
