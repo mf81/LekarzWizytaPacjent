@@ -1,7 +1,6 @@
 package eu.maciejfijalkowski.lekarzWizytaPacjent.controller;
 
 import eu.maciejfijalkowski.lekarzWizytaPacjent.model.Patient;
-import eu.maciejfijalkowski.lekarzWizytaPacjent.repository.MedicalVisitRepository;
 import eu.maciejfijalkowski.lekarzWizytaPacjent.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
